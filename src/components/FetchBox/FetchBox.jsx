@@ -5,12 +5,11 @@ import useJsonFetch from '../../hooks/useJsonFetch';
 
 export default function FetchBox(props) {
     const [data , loading, error] = useJsonFetch(props.url, props.opts);
-debugger
     return (
         <div className='component'>
             {loading && <div className='loading'>Loading ...</div>}
             {data && <div className='data'>Data:{data.status}</div>}    
-            {error && <div className='error'>Error: {error}</div>}
+            {error && <div className='error'>Error: {error.message}</div>}
         </div>
     )
 }
